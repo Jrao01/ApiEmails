@@ -30,7 +30,7 @@ setInterval(async () => {
     } catch (error) {
         console.error('💔 Heartbeat failed:', error.message);
     }
-}, 80000);
+}, 780000);
 
 app.listen(port, () => {
     console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
