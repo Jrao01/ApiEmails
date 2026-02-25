@@ -27,7 +27,7 @@ app.get('/ping', (req, res) => {
 // Auto-ping para mantener el servidor activo si es necesario
 setInterval(async () => {
     try {
-        const ping = await fetch(`http://localhost:${port}/ping`);
+        const ping = await fetch(`https://apiemails.onrender.com/ping`);
         const data = await ping.json();
         console.log('💓 Heartbeat:', data.message);
     } catch (error) {
