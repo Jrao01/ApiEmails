@@ -2,10 +2,12 @@ import 'dotenv/config';
 import nodemailer from 'nodemailer';
 
 // Creamos un único transportador para Resend usando variables de entorno
+const port = parseInt(process.env.SMTP_PORT) || 465;
+
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.resend.com',
-    port: parseInt(process.env.SMTP_PORT) || 465,
-    secure: true,
+    port: port,
+    secure: port === 465, // true para 465, false para otros (ej: 587, 2525)
     auth: {
         user: 'resend',
         pass: process.env.RESEND_API_KEY
